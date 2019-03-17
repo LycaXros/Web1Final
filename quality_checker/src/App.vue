@@ -1,6 +1,9 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
+
+    <AppNavigation> </AppNavigation>
+    
+    <!-- <v-navigation-drawer
       v-model="drawer"
       fixed
       app
@@ -28,6 +31,7 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Application</v-toolbar-title>
     </v-toolbar>
+     -->
     <v-content transition="slide-x-transition">
         <router-view></router-view>
     </v-content>
@@ -38,12 +42,16 @@
 </template>
 
 <script>
+  import AppNavigation from '@/components/AppNavigation';
   export default {
     data: () => ({
-      drawer: null
+      drawer: false
     }),
     props: {
       source: String
+    },
+    components: {
+      AppNavigation,
     }
   }
 </script>

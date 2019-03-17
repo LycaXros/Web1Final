@@ -75,8 +75,8 @@
             :href="eco.href"
             class="subheading mx-3"
             target="_blank"
+            v-text="eco.text "
           >
-            {{ eco.text }}
           </a>
         </v-layout>
       </v-flex>
