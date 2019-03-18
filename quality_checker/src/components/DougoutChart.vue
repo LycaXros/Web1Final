@@ -1,13 +1,37 @@
 <script>
-import { Doughnut } from 'vue-chartjs'
+import { Doughnut, mixins } from 'vue-chartjs'
+const { reactiveProp } = mixins
 
 export default {
-  extends: Doughnut,
-  name: "DougChart",
-  props: ['chartdata', 'options'],
-  mounted () {
-    this.renderChart(this.chartdata, this.options)
-  }
+    extends: Doughnut,
+    mixins: [reactiveProp],
+    name: "DougChart",
+    props: ['chartdata'],
+    mounted () {
+    this.renderChart(this.chartdata, this.chartOptions)
+    },
+    data(){
+        return {
+            chartOptions: {
+                responsive: true,
+                title: {
+                    display: true,
+                    position: "top",
+                    text: "",
+                    fontSize: 18,
+                    fontColor: "#111"
+                },
+                legend: {
+                    display: true,
+                    position: "bottom",
+                    labels: {
+                    fontColor: "#333",
+                    fontSize: 16
+                    }
+                }
+            },
+    }
+ }
 }
 </script>
 
