@@ -15,8 +15,8 @@ export default {
             chartOptions: {
                 responsive: true,
                 title: {
-                    display: true,
-                    position: "top",
+                    display: false,
+                    position: "bottom",
                     text: "",
                     fontSize: 18,
                     fontColor: "#111"
