@@ -7,31 +7,32 @@ export default {
     mixins: [reactiveProp],
     name: "DougChart",
     props: ['chartdata'],
-    mounted () {
-    this.renderChart(this.chartdata, this.chartOptions)
-    },
-    data(){
+    data: function() {
         return {
-            chartOptions: {
+            options: {
                 responsive: true,
                 title: {
                     display: false,
                     position: "bottom",
-                    text: "",
+                    text: "Pendejo",
                     fontSize: 18,
-                    fontColor: "#111"
+                    fontColor: "white"
                 },
                 legend: {
                     display: true,
                     position: "bottom",
                     labels: {
-                    fontColor: "#333",
-                    fontSize: 16
+                        fontColor: "white",
+                        fontSize: 18
                     }
                 }
             },
-    }
- }
+        }
+    },
+    mounted () {
+        this.renderChart(this.chartdata, this.options)
+    },
+
 }
 </script>
 

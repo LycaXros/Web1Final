@@ -1,5 +1,6 @@
 <template>
-  <v-container fluid brown lighten-4>
+  <!-- <v-container fluid light-green lighten-3> -->
+  <v-container fluid style="background-color:#7D88C1">
     
     <v-layout row >        
       <v-flex xs12 > 
@@ -9,34 +10,35 @@
 
     <v-layout row >        
       <v-flex xs12 > 
-        <dougout :chart-data="dData" />  
+        <dougout :chart-data="dData"   class="white--text"/>  
       </v-flex>
     </v-layout>
     <v-layout row justify-center>
       <v-flex xs12>
-        <v-dialog v-model="dialog" persistent max-width="290">
+        <v-dialog v-model="dialog" persistent max-width="350">
           <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark v-on="on">Ver Cuestionario</v-btn>
+            <v-btn color="success"  dark v-on="on">Ver Cuestionario</v-btn>
           </template>
-          <v-card>
-            <v-card-title>
-                <h1 > {{ title }} </h1>
+          <v-card >
+            <v-card-title class="deep-purple darken-1">
+                <h1 class="white--text" > {{ title }} </h1>
             </v-card-title>
-            <v-card-text>
-              <v-layout row wrap>
+            <v-card-text class="blue-grey">
+              <v-layout row wrap >
                   <v-flex xs12 v-for="(item, index) in items" :key="index">
                       <v-checkbox 
                           required
                           v-model="item.value"
-                          :label="item.pregunta"
+                          :label="item.pregunta"    
+                          dark
                           />
                   </v-flex>
               </v-layout>
               <br />
             </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
+            <v-card-actions >
               <v-btn color="red darken-1" flat @click="dialog = false">Cancelar</v-btn>
+              <v-spacer></v-spacer>
               <v-btn color="green darken-1" flat @click="validate()">Aceptar</v-btn>
             </v-card-actions>
           </v-card>
@@ -88,12 +90,12 @@ export default {
             {
               data: [this.completas, this.sinCompletarVal],
               backgroundColor: [
-                "rgb(0, 250,0)",
+                "#004D40",
                 "#fff",
               ],
               borderColor: [
-                "rgb(0, 200,100)",
-                "#ff0"
+                "#827717",
+                "#827717"
               ],
               borderWidth: [1, 1]
             }

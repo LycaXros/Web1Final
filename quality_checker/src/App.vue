@@ -32,11 +32,13 @@
       <v-toolbar-title>Application</v-toolbar-title>
     </v-toolbar>
      -->
-    <v-content transition="slide-x-transition">
+    <v-content transition="slide-x-transition" style="background-color:#232635">
         <router-view></router-view>
     </v-content>
-    <v-footer color="indigo" app>
-      <span class="white--text">&copy; 2017</span>
+    <v-footer color="indigo" app >
+      <v-layout justify-center row>
+        <span class="white--text">Jesus Dicent 2018-1523 &copy; 2017</span>
+      </v-layout>
     </v-footer>
   </v-app>
 </template>

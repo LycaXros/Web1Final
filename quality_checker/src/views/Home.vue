@@ -4,13 +4,13 @@
       <v-flex xs12>
         <Intro />
       </v-flex>
-      <v-flex xs4>
+      <v-flex xs12 md4>
         <ProgresionList :items="checkData" :title="checkTitle"/>        
       </v-flex>
-      <v-flex xs4>
+      <v-flex xs12 md4>
         <ProgresionList :items="checkData2" title="Cuestionario Numero 2"/>        
       </v-flex>
-      <v-flex xs4>
+      <v-flex xs12 md4>
         <ProgresionList :items="checkData2" title="Cuestionario Numero 2"/>        
       </v-flex>
     </v-layout>
