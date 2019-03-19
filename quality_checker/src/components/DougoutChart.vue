@@ -6,7 +6,7 @@ export default {
     extends: Doughnut,
     mixins: [reactiveProp],
     name: "DougChart",
-    props: ['chartdata'],
+    props: ['chartData'],
     data: function() {
         return {
             options: {
@@ -23,7 +23,7 @@ export default {
                     position: "bottom",
                     labels: {
                         fontColor: "white",
-                        fontSize: 18
+                        fontSize: 16
                     }
                 }
             },

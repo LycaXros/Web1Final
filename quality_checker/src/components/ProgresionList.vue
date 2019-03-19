@@ -1,6 +1,6 @@
 <template>
   <!-- <v-container fluid light-green lighten-3> -->
-  <v-container fluid style="background-color:#7D88C1">
+  <v-container class="card--Addons" >
     
     <v-layout row >        
       <v-flex xs12 > 
@@ -15,29 +15,29 @@
     </v-layout>
     <v-layout row justify-center>
       <v-flex xs12>
-        <v-dialog v-model="dialog" persistent max-width="350">
+        <v-dialog v-model="dialog" persistent max-width="350" scrollable >
           <template v-slot:activator="{ on }">
-            <v-btn color="success"  dark v-on="on">Ver Cuestionario</v-btn>
+            <v-btn color="green  darken-3 white--text"    v-on="on">Ver Cuestionario</v-btn>
           </template>
-          <v-card >
-            <v-card-title class="deep-purple darken-1">
+          <v-card class="card--border">
+            <v-card-title class="indigo darken-1">
                 <h1 class="white--text" > {{ title }} </h1>
             </v-card-title>
-            <v-card-text class="blue-grey">
+            <v-card-text class=""  style="height: 340px;">
               <v-layout row wrap >
                   <v-flex xs12 v-for="(item, index) in items" :key="index">
                       <v-checkbox 
                           required
                           v-model="item.value"
                           :label="item.pregunta"    
-                          dark
+                          class="black--text"
                           />
                   </v-flex>
               </v-layout>
               <br />
             </v-card-text>
-            <v-card-actions >
-              <v-btn color="red darken-1" flat @click="dialog = false">Cancelar</v-btn>
+            <v-card-actions  class="grey lighten-2" >
+              <v-btn color="red darken-1" flat  @click="dialog = false">Cancelar</v-btn>
               <v-spacer></v-spacer>
               <v-btn color="green darken-1" flat @click="validate()">Aceptar</v-btn>
             </v-card-actions>
@@ -79,6 +79,7 @@ export default {
            
             this.dialog = false;
             this.CalcularC();
+            this.$emit("save");
         },
       setTotal(){ 
         this.total = this.items.length;
