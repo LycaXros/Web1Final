@@ -35,7 +35,7 @@
     },
     methods:{
       saveState(){
-        console.log("I'm here");
+        // console.log("I'm here");
         this.$store.dispatch("guardarProducto", this.producto);
       }
     },

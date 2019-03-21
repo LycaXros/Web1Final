@@ -62,25 +62,24 @@ export default {
             required: true
         }
     },
-    data(){
-        return{
-            total: 0,
-            completas: 0,
-            dData: null,
-            valid: true,
-            dialog:false
-        }
+    data () {
+      return{
+        total: 0,
+        completas: 0,
+        dData: null,
+        valid: true,
+        dialog: false,
+      }      
     },
-    methods:{
-        clickEvent(){
-            
-        },
-        validate(){
-           
-            this.dialog = false;
-            this.CalcularC();
-            this.$emit("save");
-        },
+    methods: {
+      clickEvent() {
+          
+      },
+      validate() {        
+        this.dialog = false;
+        this.CalcularC();
+        this.$emit("save");
+      },
       setTotal(){ 
         this.total = this.items.length;
       },
