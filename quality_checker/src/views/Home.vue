@@ -46,7 +46,9 @@
         nameRules: [
           v => !!v || 'El Nombre es Requerido',
           v => (v && v.length <= 50) || 'Name must be less than 50 characters'
-        ]
+        ],
+        numeroMuestra: 0,
+        numeroLote: "",
       }
     },
     components: {

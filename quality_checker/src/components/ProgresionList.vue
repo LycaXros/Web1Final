@@ -7,7 +7,6 @@
         <h1> {{ title }} </h1>
       </v-flex>
     </v-layout>
-
     <v-layout row >        
       <v-flex xs12 > 
         <dougout :chart-data="dData"   class="white--text"/>  
@@ -45,6 +44,18 @@
         </v-dialog>
       </v-flex>
     </v-layout>
+    <v-layout row >        
+      <v-flex xs12 > 
+        {{completas}} de {{total}} preguntas.
+      </v-flex>
+    </v-layout>
+    <template v-if="porcentajeCompletado >= 70">
+      <v-layout row >        
+        <v-flex xs12 > 
+          <v-btn flat class="font-weight-bold" > Imprimir Certificado ? </v-btn>
+        </v-flex>
+      </v-layout>
+    </template>
   </v-container>
 </template>
 
@@ -68,7 +79,7 @@ export default {
         completas: 0,
         dData: null,
         valid: true,
-        dialog: false,
+        dialog: false
       }      
     },
     methods: {
@@ -122,6 +133,9 @@ export default {
         if(this.completas >= this.total){ return 0;}
 
         return this.total - this.completas;
+      },
+      porcentajeCompletado () {
+        return ((this.completas * 100) / this.total ).toFixed(1);
       }
     },
     components:{
