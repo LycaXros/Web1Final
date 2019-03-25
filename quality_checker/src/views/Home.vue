@@ -15,6 +15,15 @@
             required box
           ></v-text-field>
 
+          <v-text-field
+            v-model="numeroLote"
+            label="Numero de Lote"
+            placeholder="ZZZZ-00"
+            required box return-masked-value
+            mask="NNNN-##"
+          ></v-text-field>
+          
+
           <v-btn
             color="error"
             @click="reset"   >
@@ -63,7 +72,12 @@
         this.$refs.form.reset()
       },
       nuevoProducto: function(){
-        this.$store.dispatch("guardarProducto", { Nombre : this.name, numeroLote:"0001001"})
+        let newP = { 
+          Nombre : this.name, 
+          numeroLote: this.numeroLote,
+          numMuestra: this.numeroMuestra
+        };
+        this.$store.dispatch("guardarProducto", newP)
         this.$router.push({name: 'cuestionario'});
       }
     }

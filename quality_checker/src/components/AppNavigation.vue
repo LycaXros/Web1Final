@@ -40,15 +40,14 @@ export default {
             ]
         };
     },
-    computed:{
-        isCreated(){
-            console.log(this.$store.state.producto );
+    computed: {
+        isCreated () {
             return this.$store.state.producto != null 
         }
     },
-    methods:{
-        backToInit: function(){
-            this.$store.dispatch("eliminarProducto");
+    methods: {
+        backToInit: function () {
+            this.$store.dispatch("eliminarProducto")
             this.$router.push({name: 'home'})
         }
     }
