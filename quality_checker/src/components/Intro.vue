@@ -1,13 +1,10 @@
 <template>
-  <v-container>
-    <v-layout
-      text-xs-center
-      row
-    >
-    <h1 xs8> {{item.Nombre}} </h1>
-    <h2 xs4> {{item.numeroLote}} </h2>
-    </v-layout>
-  </v-container>
+  <v-card color="transparent">
+    <v-card-text >
+      <h1 class="text-md-left">Nombre Producto: {{item.Nombre}}  </h1>
+      <h2 class="text-md-right">Lote: {{item.numeroLote}} </h2>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

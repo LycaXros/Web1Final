@@ -6,13 +6,22 @@
       </v-flex>
       <v-flex xs12 />
       <v-flex xs12 md4>
-        <ProgresionList :items="checkData" title="Cuestionario Nuemro 1" @save="saveState"/>        
+        <ProgresionList 
+          :items="checkData"
+          title="Cuestionario Nuemro 1" 
+          @save="saveState" />        
       </v-flex>
       <v-flex xs12 md4>
-        <ProgresionList :items="checkData2" title="Cuestionario Numero 2" @save="saveState"/>        
+        <ProgresionList 
+          :items="checkData2" 
+          title="Cuestionario Numero 2"
+          @save="saveState"/>        
       </v-flex>
       <v-flex xs12 md4>
-        <ProgresionList :items="checkData3" title="Cuestionario Numero 3" @save="saveState"/>        
+        <ProgresionList 
+          :items="checkData3" 
+          title="Cuestionario Numero 3" 
+          @save="saveState"/>        
       </v-flex>
     </v-layout>
   </v-container>

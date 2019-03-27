@@ -28,6 +28,13 @@ export default new Router({
       path: '/cuestionario',
       name: 'cuestionario',
       component: Cuestionario
+    },
+    {
+      path: '/certificado',
+      name: 'certificado',
+      component: function () {
+        return import('./views/Certificado.vue')
+      }
     }
   ]
 })

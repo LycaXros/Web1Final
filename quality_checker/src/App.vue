@@ -8,7 +8,7 @@
     </v-content>
     <v-footer color="indigo" app >
       <v-layout justify-center row>
-        <span class="white--text">Jesus Dicent 2018-1523 &copy; 2017</span>
+        <span class="white--text">Jesus Dicent 2018-1523 &copy; 2019</span>
       </v-layout>
     </v-footer>
   </v-app>
