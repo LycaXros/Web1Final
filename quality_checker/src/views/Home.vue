@@ -38,7 +38,12 @@
                   label="Numero de Muestra" required box
                 ></v-text-field>
               </v-flex>
-              
+              <v-flex xs6 md3 offset-md6>
+                <v-text-field 
+                  box label="Dato que no conosco"
+                >                  
+                </v-text-field>
+              </v-flex>
             </v-layout>
             <v-layout  justify-center>
               <v-flex >
