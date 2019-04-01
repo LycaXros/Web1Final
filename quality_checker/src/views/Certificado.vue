@@ -4,8 +4,14 @@
             <v-flex xs12 sm6 offset-sm3>
                 <v-card>
                     <v-responsive :aspect-ratio="16/9">
-                        <v-img
-                        :src="this.background" >
+                        <v-img :src="this.background" >
+                            <v-container fill-height fluid>
+                                <v-layout fill-height>
+                                    <v-flex xs6 offset-md6 align-end flexbox>
+                                        <span class="headline">Top 10 Australian beaches</span>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
                         </v-img>
                         <v-card-actions>
                             <v-container fluid grid-list-xl>
@@ -42,7 +48,9 @@ export default {
     created () {
         let temp = this.$store.state.producto;
         this.producto = {
-            d : temp.Nombre
+            nombre : temp.Nombre,
+            lote : temp.numeroLote,
+            muestra : temp.numeroMuestra
         }
     }
 }
