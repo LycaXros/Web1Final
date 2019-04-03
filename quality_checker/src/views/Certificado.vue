@@ -1,14 +1,62 @@
 <template>
     <v-container>
         <v-layout row wrap>
-            <v-flex xs12 sm6 offset-sm3>
+            <v-flex xs12 md6 offset-sm3>
                 <v-card>
                     <v-responsive :aspect-ratio="16/9">
                         <v-img :src="this.background" >
-                            <v-container fill-height fluid>
-                                <v-layout fill-height>
-                                    <v-flex xs6 offset-md6 align-end flexbox>
-                                        <span class="headline">Top 10 Australian beaches</span>
+                            <v-container  fluid  >
+                                <v-layout row wrap > 
+                                    <v-flex xs12> &nbsp; </v-flex>
+                                    <v-flex xs12> &nbsp; </v-flex>
+                                    <v-flex xs12> &nbsp; </v-flex>
+                                </v-layout>
+                                
+                                <v-layout row wrap > 
+                                    <v-flex xs12 md12 align-center justify-center offset-xs4  > 
+                                        <span class=" font-weight-bold subheading"> {{this.$route.params.title}} </span>
+                                    </v-flex>
+
+                                    <v-flex xs6 md3 offset-xs3>
+                                        Nombre Producto
+                                    </v-flex>
+                                    <v-flex xs3 md6>
+                                        : {{producto.nombre}}
+                                    </v-flex>
+
+                                    <v-flex xs6 md3 offset-xs3>
+                                        Número de Lote 
+                                    </v-flex>
+                                    <v-flex  xs3 md6 >
+                                        : {{producto.lote}}
+                                    </v-flex>
+
+                                    <v-flex  xs6 md3 offset-xs3>
+                                        Número de Muestra
+                                    </v-flex>
+                                    <v-flex  xs3 md5>
+                                        : {{producto.muestra}}
+                                    </v-flex>
+                                </v-layout>
+                                <v-layout row wrap > 
+                                    <v-flex xs6 md12> &nbsp; </v-flex>
+                                    <v-flex xs6 md12> &nbsp; </v-flex>
+                                    <v-flex xs6 md12> &nbsp; </v-flex>
+                                    <v-flex xs6 md12> &nbsp; </v-flex>
+                                    <v-flex xs6 md12> &nbsp; </v-flex>
+                                    <v-flex xs6 md12> &nbsp; </v-flex>
+                                </v-layout>
+                                
+                                <v-layout row wrap > 
+                                    <v-flex  xs12 md12 offset-xs2>
+                                        <v-layout row align-end fill-height>
+                                            <v-flex>
+                                                {{producto.today}}
+                                            </v-flex>
+                                            <v-flex offset-xs4>
+                                                Jesus Dicent 2018-1523
+                                            </v-flex>
+                                        </v-layout>
                                     </v-flex>
                                 </v-layout>
                             </v-container>
@@ -47,10 +95,15 @@ export default {
     },
     created () {
         let temp = this.$store.state.producto;
+        let date = new Date();
+        let month = date.getMonth() == 11 ? date.getMonth() + 1: date.getMonth();
+
+        var formatDate = date.getDate()+"/"+month+"/" + date.getFullYear();
         this.producto = {
             nombre : temp.Nombre,
             lote : temp.numeroLote,
-            muestra : temp.numeroMuestra
+            muestra : temp.numMuestra,
+            today : formatDate
         }
     }
 }

@@ -52,7 +52,7 @@
     <template v-if="porcentajeCompletado >= 70">
       <v-layout row >        
         <v-flex xs12 > 
-          <v-btn flat class="font-weight-bold" :to="{ name:'certificado'}"> Imprimir Certificado ? </v-btn>
+          <v-btn flat class="font-weight-bold" :to="{ name:'certificado', params: { title: title } }"> Imprimir Certificado ? </v-btn>
         </v-flex>
       </v-layout>
     </template>
