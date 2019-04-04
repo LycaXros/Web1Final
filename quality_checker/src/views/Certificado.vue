@@ -1,43 +1,37 @@
 <template>
     <v-container>
         <v-layout row wrap>
-            <v-flex xs12 md6 offset-sm3>
+            <v-flex xs8 md8 class="boxPrincipal" offset-xs2>
                 <v-card>
-                    <v-responsive :aspect-ratio="16/9">
-                        <v-img :src="this.background" >
+                    <v-responsive :aspect-ratio="16/10.0">
+                        <v-img :src="this.background" style="">
                             <v-container  fluid  >
-                                <v-layout row wrap > 
-                                    <v-flex xs12> &nbsp; </v-flex>
-                                    <v-flex xs12> &nbsp; </v-flex>
-                                    <v-flex xs12> &nbsp; </v-flex>
-                                </v-layout>
-                                
-                                <v-layout row wrap > 
-                                    <v-flex xs12 md12 align-center justify-center offset-xs4  > 
-                                        <span class=" font-weight-bold subheading"> {{this.$route.params.title}} </span>
+                                <v-layout row wrap class="dataBox "> 
+                                    <v-flex xs12 md12 align-center justify-center offset-xs4 style="padding-bottom:5%" > 
+                                        <h2 style="font-family: 'Cinzel', serif;" > {{this.$route.params.title}} </h2>
                                     </v-flex>
-
-                                    <v-flex xs6 md3 offset-xs3>
+                                    <v-flex xs6 md3 offset-xs3 class="specialFont">
                                         Nombre Producto
                                     </v-flex>
-                                    <v-flex xs3 md6>
+                                    <v-flex xs3 md6  class="specialFont">
                                         : {{producto.nombre}}
                                     </v-flex>
 
-                                    <v-flex xs6 md3 offset-xs3>
+                                    <v-flex xs6 md3 offset-xs3 class="specialFont">
                                         Número de Lote 
                                     </v-flex>
-                                    <v-flex  xs3 md6 >
+                                    <v-flex  xs3 md6  class="specialFont">
                                         : {{producto.lote}}
                                     </v-flex>
 
-                                    <v-flex  xs6 md3 offset-xs3>
+                                    <v-flex  xs6 md3 offset-xs3 class="specialFont">
                                         Número de Muestra
                                     </v-flex>
-                                    <v-flex  xs3 md5>
+                                    <v-flex  xs3 md5 class="specialFont">
                                         : {{producto.muestra}}
                                     </v-flex>
                                 </v-layout>
+                                <!--
                                 <v-layout row wrap > 
                                     <v-flex xs6 md12> &nbsp; </v-flex>
                                     <v-flex xs6 md12> &nbsp; </v-flex>
@@ -46,9 +40,9 @@
                                     <v-flex xs6 md12> &nbsp; </v-flex>
                                     <v-flex xs6 md12> &nbsp; </v-flex>
                                 </v-layout>
-                                
-                                <v-layout row wrap > 
-                                    <v-flex  xs12 md12 offset-xs2>
+                                -->
+                                <v-layout row wrap class="dataBox specialFont"> 
+                                    <v-flex  xs12 md12 offset-xs2 class="specialFont">
                                         <v-layout row align-end fill-height>
                                             <v-flex>
                                                 {{producto.today}}
@@ -109,9 +103,21 @@ export default {
 }
 </script>
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Cinzel:900|Kaushan+Script|Tangerine');
 .BackGround{
     background-image: url('../assets/Certificado.jpg');
     height: 500px;
     width: 500px;
+}
+.dataBox{
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+.specialFont{
+    font-size: 140%;
+    font-family: 'Kaushan Script', cursive;
+}
+.boxPrincipal{
+    padding: 0 10%
 }
 </style>

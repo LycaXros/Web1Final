@@ -40,7 +40,7 @@
               </v-flex>
               <v-flex xs6 md3 offset-md6>
                 <v-text-field 
-                  box label="Dato que no conosco"
+                  box label="Dato que no conozco"
                 >                  
                 </v-text-field>
               </v-flex>
