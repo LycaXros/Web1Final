@@ -3,8 +3,8 @@
         <v-layout row wrap>
             <v-flex xs8 md8 class="boxPrincipal" offset-xs2>
                 <v-card>
-                    <v-responsive :aspect-ratio="16/10.0">
-                        <v-img :src="this.background" style="">
+                    <v-responsive :aspect-ratio="16/9.0">
+                        <v-img :src="this.background" style="" contain>
                             <v-container  fluid  >
                                 <v-layout row wrap class="dataBox "> 
                                     <v-flex xs12 md12 align-center justify-center offset-xs4 style="padding-bottom:5%" > 
@@ -105,16 +105,18 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Cinzel:900|Kaushan+Script|Tangerine');
 .BackGround{
-    background-image: url('../assets/Certificado.jpg');
+    /*background-image: url('../assets/Certificado.jpg');
     height: 500px;
-    width: 500px;
+    width: 500px;*/
+    background-size: 100%;
 }
 .dataBox{
     padding-top: 15%;
-    padding-bottom: 15%;
+    padding-bottom: 1%;
 }
 .specialFont{
-    font-size: 140%;
+    //font-size: 120%;
+    font-size: 1.5rem;
     font-family: 'Kaushan Script', cursive;
 }
 .boxPrincipal{
