@@ -115,7 +115,7 @@ export default {
     padding-bottom: 1%;
 }
 .specialFont{
-    //font-size: 120%;
+    font-size: 120%;
     font-size: 1.5rem;
     font-family: 'Kaushan Script', cursive;
 }

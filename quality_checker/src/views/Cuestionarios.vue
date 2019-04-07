@@ -5,6 +5,51 @@
         <Intro :item="producto"/>
       </v-flex>
       <v-flex xs12 />
+      <v-flex xs12 >
+        <v-expansion-panel v-model="panel" >
+          <v-expansion-panel-content
+            style="background-color:#778CAA"
+            class="card--Addons" >
+            <template v-slot:header>
+              <h3> Datos de la Muestra </h3>
+            </template>
+            <v-card>
+              <v-card-text>
+                <v-container grid-list-md text-xs-center>
+                  <v-layout wrap justify-space-between>
+
+                    <v-flex xs12 md6 lg4>
+                      <v-text-field prepend-icon="fas fa-thermometer-half"
+                        label="Temperatura de la Muestra" type="number"
+                        v-model="datosMuestras.temp" min="0" max="100">
+                        <template v-slot:append>
+                          C°
+                        </template>
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex xs12 md6 lg4>
+                      <v-text-field prepend-icon="fas fa-weight"
+                        label="Peso de la Muestra" type="number"
+                        v-model="datosMuestras.peso" min="0">
+                      </v-text-field>
+                    </v-flex>
+                    <v-flex xs12 md6 lg4>
+                      <v-text-field 
+                        label="Fecha de produccion" type="date"
+                        v-model="datosMuestras.fechaP" :max="tomorrow">
+                      </v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-card-text>
+              <v-card-actions class="text-xs-center">
+                <v-btn large color="green" @click="saveState()" block>Guardar</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-flex>
+      <v-flex xs12 />
       <v-flex xs12 md4>
         <ProgresionList 
           :items="checkData"
@@ -38,14 +83,25 @@
         checkData: [],
         checkData2:[],
         checkData3:[],
-        producto: null
+        panel: [false],
+        datosMuestras: { },
+        producto: null,
+        tomorrow: ""
         
       }
     },
     methods:{
-      saveState(){
+      saveState (){
         // console.log("I'm here");
         this.$store.dispatch("guardarProducto", this.producto);
+      },
+      setTomorrowDate () {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        this.tomorrow = yyyy + "-" + mm + "-" + dd;
       }
     },
 
@@ -53,7 +109,8 @@
       Intro,
       ProgresionList
     },
-    created(){
+    created () {
+      this.setTomorrowDate();
       this.producto = this.$store.state.producto;
       if(this.producto.Lista_1 === undefined || this.producto.Lista_1 == null){
         this.checkData = [
@@ -98,6 +155,17 @@
       }
       else{
         this.checkData3 = this.producto.Lista_3 ;
+      }
+
+      if(this.producto.datosMuestras === undefined || this.producto.datosMuestras == null){
+        this.datosMuestras = {
+            temp: null,
+            peso: null,
+            fechaP: this.tomorrow
+        };
+        this.producto.datosMuestras = this.datosMuestras;
+      }else{
+        this.datosMuestras = this.producto.datosMuestras;
       }
 
     }
