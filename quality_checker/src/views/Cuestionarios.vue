@@ -11,7 +11,7 @@
             style="background-color:#778CAA"
             class="card--Addons" >
             <template v-slot:header>
-              <h3> Datos de la Muestra </h3>
+              <h3> Datos de la Muestra ({{producto.numMuestra}})</h3>
             </template>
             <v-card>
               <v-card-text>
